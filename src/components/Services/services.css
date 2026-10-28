@@ -23,11 +23,13 @@
 }
 
 .services-header p {
+	max-width: 900px;
 	margin: 0;
+	margin-inline: auto;
 	color: #444;
 	font-size: clamp(0.9rem, 1.5vw, 1.15rem);
 	line-height: 1.7;
-	white-space: nowrap;
+	text-wrap: balance;
 }
 
 .services-list {
@@ -136,10 +138,6 @@
 @media (max-width: 575.98px) {
 	.services-list {
 		grid-template-columns: 1fr;
-	}
-
-	.services-header p {
-		white-space: normal;
 	}
 
 	.service-card {
