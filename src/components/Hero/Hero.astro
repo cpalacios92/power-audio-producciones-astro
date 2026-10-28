@@ -1,0 +1,81 @@
+---
+import "./hero.css";
+
+const slides = [
+	{
+		image: "/images/hero/power-audio-producciones-4-optimized.webp",
+		alt: "Producción técnica para eventos en vivo",
+	},
+	{
+		image: "/images/hero/power-audio-producciones-5-optimized.webp",
+		alt: "Sonido e iluminación profesional para eventos",
+	},
+	{
+		image: "/images/hero/power-audio-producciones-1-optimized.webp",
+		alt: "Montaje audiovisual para conciertos y eventos",
+	},
+];
+
+const whatsappUrl =
+	"https://api.whatsapp.com/send?phone=573127274932&text=Hola%21+Estoy+interesad%40+en+realizar+una+cotizaci%C3%B3n.";
+---
+
+<section class="hero" id="inicio" aria-label="Producción técnica para eventos">
+	<div class="hero-slides" aria-hidden="true">
+		{
+			slides.map((slide, index) => (
+				<div class:list={["hero-slide", { "is-active": index === 0 }]}>
+					<img
+						src={slide.image}
+						alt={slide.alt}
+						class="hero-image"
+						loading="eager"
+						fetchpriority={index === 0 ? "high" : "auto"}
+						decoding="async"
+					/>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="hero-content">
+		<h1>Producción técnica para eventos</h1>
+		<p class="hero-description">
+			Sonido, iluminación, pantallas, tarimas y producción audiovisual
+			para eventos empresariales, conciertos y experiencias en vivo.
+		</p>
+		<a
+			class="hero-cta"
+			href={whatsappUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="Cotiza tu evento por WhatsApp (abre en una pestaña nueva)"
+		>
+			Cotiza tu evento
+		</a>
+	</div>
+</section>
+
+<script>
+	const slideDuration = 7_000;
+
+	document.querySelectorAll<HTMLElement>(".hero").forEach((hero) => {
+		const slides = Array.from(
+			hero.querySelectorAll<HTMLElement>(".hero-slide"),
+		);
+		let activeIndex = 0;
+
+		const showSlide = (index: number) => {
+			activeIndex = index;
+			slides.forEach((slide, slideIndex) => {
+				slide.classList.toggle("is-active", slideIndex === activeIndex);
+			});
+		};
+
+		if (slides.length > 1) {
+			window.setInterval(() => {
+				showSlide((activeIndex + 1) % slides.length);
+			}, slideDuration);
+		}
+	});
+</script>
