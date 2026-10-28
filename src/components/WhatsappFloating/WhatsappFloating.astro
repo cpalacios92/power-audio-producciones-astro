@@ -1,0 +1,17 @@
+---
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "./whatsappFloating.css";
+
+const whatsappUrl =
+	"https://api.whatsapp.com/send?phone=573127274932&text=Hola%21+Estoy+interesad%40+en+realizar+una+cotizaci%C3%B3n.";
+---
+
+<a
+	class="whatsapp-floating"
+	href={whatsappUrl}
+	target="_blank"
+	rel="noopener noreferrer"
+	aria-label="Escríbenos por WhatsApp (abre en una pestaña nueva)"
+>
+	<i class="bi bi-whatsapp" aria-hidden="true"></i>
+</a>
