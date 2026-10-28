@@ -1,0 +1,26 @@
+---
+import "./callToAction.css";
+
+const whatsappUrl =
+	"https://api.whatsapp.com/send?phone=573127274932&text=Hola%21+Estoy+interesad%40+en+realizar+una+cotizaci%C3%B3n.";
+---
+
+<section class="call-to-action" aria-labelledby="call-to-action-title">
+	<div class="call-to-action-content">
+		<p class="call-to-action-eyebrow">¿LISTO PARA TU EVENTO?</p>
+		<h2 id="call-to-action-title">Hagamos que suceda</h2>
+		<p class="call-to-action-description">
+			Estamos listos para poner la técnica, la experiencia y el equipo detrás
+			de tu próximo evento.
+		</p>
+		<a
+			class="call-to-action-button"
+			href={whatsappUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="Cotizar ahora por WhatsApp (abre en una pestaña nueva)"
+		>
+			COTIZAR AHORA
+		</a>
+	</div>
+</section>

@@ -1,0 +1,88 @@
+.call-to-action {
+	position: relative;
+	display: flex;
+	min-height: clamp(420px, 55vw, 680px);
+	align-items: center;
+	justify-content: flex-start;
+	overflow: hidden;
+	isolation: isolate;
+	padding: clamp(3rem, 8vw, 7rem) clamp(1rem, 5vw, 5rem);
+	background:
+		linear-gradient(90deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.78)),
+		url("/images/callToAction/power-audio-producciones-23.webp") center / cover
+			no-repeat;
+	color: #fff;
+}
+
+.call-to-action-content {
+	width: min(100%, 620px);
+	text-align: left;
+}
+
+.call-to-action-eyebrow {
+	margin: 0 0 1rem;
+	color: #d7a26f;
+	font-size: clamp(1rem, 2vw, 1.25rem);
+	font-weight: 700;
+	letter-spacing: 0.16em;
+}
+
+.call-to-action-content h2 {
+	margin: 0;
+	font-size: clamp(2.75rem, 6vw, 5.5rem);
+	font-weight: 700;
+	letter-spacing: -0.05em;
+	line-height: 1;
+	text-wrap: balance;
+}
+
+.call-to-action-description {
+	margin: 1.25rem 0 2rem;
+	color: rgba(255, 255, 255, 0.92);
+	font-size: clamp(1rem, 1.6vw, 1.2rem);
+	line-height: 1.7;
+}
+
+.call-to-action-button {
+	display: inline-flex;
+	min-height: 3.5rem;
+	align-items: center;
+	justify-content: center;
+	padding: 0.9rem 1.5rem;
+	border: 1px solid #995f2b;
+	background: #995f2b;
+	color: #fff;
+	font-size: 0.88rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-decoration: none;
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease,
+		transform 0.2s ease;
+}
+
+.call-to-action-button:hover,
+.call-to-action-button:focus-visible {
+	transform: translateY(-2px);
+	border-color: #b87940;
+	background: #b87940;
+	color: #fff;
+}
+
+@media (max-width: 767.98px) {
+	.call-to-action {
+		min-height: 440px;
+		background-position: 40% center;
+	}
+
+	.call-to-action-content {
+		width: min(100%, 520px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.call-to-action-button {
+		transition: none;
+	}
+}
