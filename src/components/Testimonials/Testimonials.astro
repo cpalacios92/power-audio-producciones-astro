@@ -1,0 +1,134 @@
+---
+import "./testimonials.css";
+
+const testimonials = [
+	{
+		name: "Andrés Martínez",
+		text: "Equipos de excelente calidad y un montaje impecable. El sonido y la iluminación hicieron que nuestro evento superara todas nuestras expectativas.",
+	},
+	{
+		name: "Carolina Gómez",
+		text: "Cumplieron perfectamente los tiempos acordados. Llegaron puntuales, realizaron el montaje con anticipación y todo estuvo listo antes de comenzar nuestro evento.",
+	},
+	{
+		name: "Sebastián Ramírez",
+		text: "Excelente atención desde la cotización hasta finalizar el evento. Siempre estuvieron pendientes, nos asesoraron y resolvieron rápidamente cada una de nuestras necesidades.",
+	},
+	{
+		name: "Natalia Herrera",
+		text: "Un equipo profesional, organizado y comprometido. Nos acompañaron durante todo el proceso y lograron que la producción de nuestro evento fuera excelente.",
+	},
+];
+---
+
+<section class="testimonials" aria-labelledby="testimonials-title">
+	<div class="testimonials-inner">
+		<header class="testimonials-header">
+			<h2 id="testimonials-title">La confianza se construye evento a evento</h2>
+			<p>Esto dicen quienes ya han trabajado con nosotros.</p>
+		</header>
+
+		<div
+			class="testimonials-carousel"
+			aria-label="Testimonios de nuestros clientes"
+			aria-roledescription="carrusel"
+			tabindex="0"
+		>
+			<div class="testimonials-track">
+				{
+					testimonials.map((testimonial) => (
+						<article
+							class="testimonial-card"
+							aria-label={`Testimonio de ${testimonial.name}`}
+						>
+							<p>{testimonial.text}</p>
+							<h3>{testimonial.name}</h3>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const slideInterval = 5_000;
+
+	document
+		.querySelectorAll<HTMLElement>(".testimonials-carousel")
+		.forEach((carousel) => {
+			const track = carousel.querySelector<HTMLElement>(
+				".testimonials-track",
+			);
+			if (!track) return;
+
+			const originalCards = Array.from(
+				track.querySelectorAll<HTMLElement>(".testimonial-card"),
+			);
+			const clones = originalCards.slice(0, 2).map((card) => {
+				const clone = card.cloneNode(true) as HTMLElement;
+				clone.setAttribute("aria-hidden", "true");
+				clone.querySelector("h3")?.setAttribute("aria-hidden", "true");
+				clone.querySelector("p")?.setAttribute("aria-hidden", "true");
+				return clone;
+			});
+			track.append(...clones);
+			const allCards = Array.from(
+				track.querySelectorAll<HTMLElement>(".testimonial-card"),
+			);
+
+			let index = 0;
+			let intervalId = 0;
+
+			const moveToNextCard = () => {
+				index += 1;
+				track.style.transform = `translateX(-${allCards[index].offsetLeft}px)`;
+
+				if (index === originalCards.length) {
+					track.addEventListener(
+						"transitionend",
+						() => {
+							track.classList.add("is-resetting");
+							index = 0;
+							track.style.transform = "translateX(0)";
+							requestAnimationFrame(() => {
+								track.classList.remove("is-resetting");
+							});
+						},
+						{ once: true },
+					);
+				}
+			};
+
+			const start = () => {
+				if (
+					intervalId ||
+					window.matchMedia("(prefers-reduced-motion: reduce)").matches
+				) {
+					return;
+				}
+
+				intervalId = window.setInterval(moveToNextCard, slideInterval);
+			};
+
+			const stop = () => {
+				window.clearInterval(intervalId);
+				intervalId = 0;
+			};
+
+			carousel.addEventListener("mouseenter", stop);
+			carousel.addEventListener("mouseleave", start);
+			carousel.addEventListener("focusin", stop);
+			carousel.addEventListener("focusout", start);
+			start();
+
+			window.addEventListener("resize", () => {
+				track.classList.add("is-resetting");
+				index = 0;
+				track.style.transform = "translateX(0)";
+				requestAnimationFrame(() => {
+					track.classList.remove("is-resetting");
+				});
+			});
+		});
+</script>
