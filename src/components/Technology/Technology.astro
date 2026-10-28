@@ -1,0 +1,38 @@
+---
+import "./technology.css";
+
+const brands = [
+	{ name: "FBT", image: "fbt-new.webp" },
+	{ name: "Midas", image: "midas.webp" },
+	{ name: "RCF", image: "rcf-logo.webp" },
+	{ name: "Yamaha", image: "yamaha-logo.webp" },
+];
+---
+
+<section class="technology" aria-labelledby="technology-title">
+	<div class="technology-inner">
+		<header class="technology-header">
+			<h2 id="technology-title">Tecnología que nos respalda</h2>
+			<p>
+				Trabajamos con equipos de marcas líderes en audio y producción
+				profesional para garantizar calidad, potencia y confiabilidad en
+				cada evento.
+			</p>
+		</header>
+
+		<ul class="technology-list" aria-label="Marcas de equipos">
+			{
+				brands.map((brand) => (
+					<li class="technology-item">
+						<img
+							src={`/images/technology/${brand.image}`}
+							alt={brand.name}
+							loading="lazy"
+							decoding="async"
+						/>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
