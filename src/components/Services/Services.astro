@@ -1,0 +1,92 @@
+---
+import "./services.css";
+
+interface Props {
+	showAll?: boolean;
+}
+
+const { showAll = false } = Astro.props;
+
+const services = [
+	{
+		title: "Sonido para eventos",
+		description:
+			"Gran potencia, absoluta claridad y amplia cobertura para que cada detalle se escuche como debe.",
+		image: "power-audio-producciones-9.webp",
+	},
+	{
+		title: "Pantallas LED",
+		description:
+			"Contenido, marcas y momentos importantes con una experiencia visual de alto impacto.",
+		image: "power-audio-producciones-8.webp",
+	},
+	{
+		title: "Consolas para DJ",
+		description:
+			"Equipos profesionales preparados para ofrecer estabilidad y rendimiento durante cada presentación.",
+		image: "power-audio-producciones-19.webp",
+	},
+	{
+		title: "Iluminación profesional",
+		description:
+			"Diseñamos ambientes que transforman el espacio y acompañan cada momento del evento.",
+		image: "power-audio-producciones-7.webp",
+	},
+	{
+		title: "Carpas",
+		description:
+			"Soluciones funcionales para proteger, organizar y adaptar espacios para cada producción.",
+		image: "power-audio-producciones-22.webp",
+	},
+	{
+		title: "Tarimas",
+		description:
+			"Estructuras altamente seguras y totalmente profesionales para grandes conciertos, presentaciones y eventos.",
+		image: "power-audio-producciones-17.webp",
+	},
+];
+
+const visibleServices = showAll ? services : services.slice(0, 3);
+---
+
+<section class="services" id="servicios" aria-labelledby="services-title">
+	<div class="services-inner">
+		<header class="services-header">
+			<h2 id="services-title">Todo para tu evento</h2>
+			<p>
+				Soluciones técnicas y equipos profesionales para que tu evento se vea,
+				suene y se viva al máximo.
+			</p>
+		</header>
+
+		<div class="services-list">
+			{
+				visibleServices.map((service) => (
+					<article class="service-card">
+						<img
+							class="service-image"
+							src={`/images/services/${service.image}`}
+							alt=""
+							loading="lazy"
+							decoding="async"
+						/>
+						<div class="service-content">
+							<h3>{service.title}</h3>
+							<p>{service.description}</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		{
+			!showAll && (
+				<div class="services-action">
+					<a class="services-button" href="/servicios">
+						CONOCE TODOS LOS SERVICIOS
+					</a>
+				</div>
+			)
+		}
+	</div>
+</section>
