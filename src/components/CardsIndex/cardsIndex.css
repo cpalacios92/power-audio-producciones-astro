@@ -1,0 +1,62 @@
+.cards-index {
+	padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 5vw, 5rem);
+	background: #f7f5f2;
+}
+
+.cards-index-inner {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.cards-index-title {
+	margin: 0 0 2.5rem;
+	color: #111;
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 700;
+	letter-spacing: -0.04em;
+	text-align: center;
+}
+
+.cards-index-list {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 2rem;
+}
+
+.cards-index-card {
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.08);
+}
+
+.cards-index-image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+}
+
+.cards-index-content {
+	padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.cards-index-content h3 {
+	margin: 0 0 0.75rem;
+	color: #995f2b;
+	font-size: clamp(1.35rem, 2vw, 1.75rem);
+	font-weight: 700;
+}
+
+.cards-index-content p {
+	margin: 0;
+	color: #444;
+	font-size: 1rem;
+	line-height: 1.7;
+}
+
+@media (max-width: 767.98px) {
+	.cards-index-list {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+}

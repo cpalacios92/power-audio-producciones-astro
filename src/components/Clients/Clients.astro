@@ -1,0 +1,35 @@
+---
+import "./clients.css";
+
+const clients = [
+	{ name: "Alcaldía de Bello", image: "alcaldia-de-bello.webp" },
+	{ name: "Alcaldía de Girardota", image: "alcaldia-de-girardota.webp" },
+	{ name: "Alcaldía de Medellín", image: "alcaldia-de-medellin.webp" },
+	{ name: "Creaciones Empresariales", image: "creaciones-empresariales.webp" },
+	{ name: "Kore Music", image: "kore-music.webp" },
+];
+---
+
+<section class="clients" aria-labelledby="clients-title">
+	<div class="clients-inner">
+		<h2 id="clients-title">Aliados y clientes</h2>
+		<p class="clients-description">
+			Empresas, instituciones y marcas que han contado con nosotros para sus
+			eventos.
+		</p>
+		<ul class="clients-list">
+			{
+				clients.map((client) => (
+					<li class="clients-item">
+						<img
+							src={`/images/clients/${client.image}`}
+							alt={client.name}
+							loading="lazy"
+							decoding="async"
+						/>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

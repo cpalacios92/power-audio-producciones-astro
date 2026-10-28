@@ -1,0 +1,42 @@
+---
+import "./cardsIndex.css";
+
+const cards = [
+	{
+		title: "Producción integral",
+		description:
+			"Nos encargamos del montaje técnico de tu evento, integrando sonido, iluminación, pantallas y tarimas para que todo funcione en perfecta sincronía.",
+		image: "/images/cardsIndex/power-audio-producciones-11.webp",
+	},
+	{
+		title: "Eventos sin complicaciones",
+		description:
+			"Mientras tú te concentras en el evento, nuestro equipo se encarga de la instalación, las pruebas y el acompañamiento técnico para que todo salga como lo planeaste.",
+		image: "/images/cardsIndex/power-audio-producciones-12.webp",
+	},
+];
+---
+
+<section class="cards-index" aria-labelledby="cards-index-title">
+	<div class="cards-index-inner">
+		<div class="cards-index-list">
+			{
+				cards.map((card) => (
+					<article class="cards-index-card">
+						<img
+							class="cards-index-image"
+							src={card.image}
+							alt={card.title}
+							loading="lazy"
+							decoding="async"
+						/>
+						<div class="cards-index-content">
+							<h3>{card.title}</h3>
+							<p>{card.description}</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>
