@@ -17,19 +17,37 @@ const clients = [
 			Empresas, instituciones y marcas que han contado con nosotros para sus
 			eventos.
 		</p>
-		<ul class="clients-list">
-			{
-				clients.map((client) => (
-					<li class="clients-item">
-						<img
-							src={`/images/clients/${client.image}`}
-							alt={client.name}
-							loading="lazy"
-							decoding="async"
-						/>
-					</li>
-				))
-			}
-		</ul>
+		<div class="clients-carousel" aria-label="Logos de aliados y clientes">
+			<div class="clients-track">
+				<ul class="clients-list">
+					{
+						clients.map((client) => (
+							<li class="clients-item">
+								<img
+									src={`/images/clients/${client.image}`}
+									alt={client.name}
+									loading="lazy"
+									decoding="async"
+								/>
+							</li>
+						))
+					}
+				</ul>
+				<ul class="clients-list" aria-hidden="true">
+					{
+						clients.map((client) => (
+							<li class="clients-item">
+								<img
+									src={`/images/clients/${client.image}`}
+									alt=""
+									loading="lazy"
+									decoding="async"
+								/>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
 	</div>
 </section>
