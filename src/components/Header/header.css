@@ -1,0 +1,97 @@
+.site-header .navbar {
+	background-color: #000;
+	padding: 0.75rem clamp(2rem, 5vw, 5rem);
+}
+
+.site-header .navbar-brand {
+	margin-right: 2rem;
+}
+
+.header-logo {
+	display: block;
+	width: auto;
+	max-width: 260px;
+	height: 64px;
+	object-fit: contain;
+}
+
+.site-header .navbar-collapse {
+	align-items: center;
+}
+
+.site-header .navbar-nav {
+	gap: 1.25rem;
+	margin: 0 auto;
+}
+
+.site-header .navbar-nav .nav-link {
+	color: #fff;
+	padding: 0.75rem 1rem;
+	transition: color 0.2s ease-in-out;
+}
+
+.site-header .nav-link-home {
+	color: #fff;
+}
+
+.site-header .nav-link-home:hover,
+.site-header .nav-link-home:focus,
+.site-header .nav-link-home:active {
+	color: #995f2b;
+}
+
+.site-header .nav-link-home.active:not(:hover):not(:focus) {
+	color: #fff;
+}
+
+.site-header .navbar-nav .nav-link:hover,
+.site-header .navbar-nav .nav-link:focus,
+.site-header .navbar-nav .nav-link.active {
+	color: #995f2b;
+}
+
+.header-social-links {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+}
+
+.header-social-links a {
+	color: #fff;
+	font-size: 1.35rem;
+	line-height: 1;
+	transition: color 0.2s ease-in-out;
+}
+
+.header-social-links a:hover,
+.header-social-links a:focus {
+	color: #995f2b;
+}
+
+.site-header .navbar-toggler {
+	border-color: #fff;
+}
+
+.site-header .navbar-toggler:focus {
+	box-shadow: 0 0 0 0.15rem rgba(153, 95, 43, 0.6);
+}
+
+.site-header .navbar-toggler-icon {
+	filter: invert(1);
+}
+
+@media (max-width: 991.98px) {
+	.site-header .navbar-collapse {
+		padding-top: 1rem;
+	}
+
+	.site-header .navbar-nav {
+		align-items: flex-start;
+		gap: 0.25rem;
+		margin: 0;
+	}
+
+	.header-social-links {
+		padding: 0.75rem 1rem 0;
+	}
+}

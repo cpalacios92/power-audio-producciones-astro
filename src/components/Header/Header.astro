@@ -1,0 +1,84 @@
+---
+import "./header.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+---
+
+<header class="site-header">
+	<nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+		<div class="container-fluid">
+			<a
+				class="navbar-brand"
+				href="/"
+				aria-label="Power Audio Producciones, inicio"
+			>
+				<img
+					src="/images/power-audio-producciones-logo-header.webp"
+					alt="Power Audio Producciones"
+					class="header-logo"
+				/>
+			</a>
+
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#headerNavigation"
+				aria-controls="headerNavigation"
+				aria-expanded="false"
+				aria-label="Abrir navegación"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="headerNavigation">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a
+							class="nav-link nav-link-home active"
+							href="#inicio"
+							aria-current="page">Inicio</a
+						>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#servicios">Servicios</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#quienes-somos"
+							>Quiénes Somos</a
+						>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#cotizar">Cotizar</a>
+					</li>
+				</ul>
+
+				<div class="header-social-links" aria-label="Redes sociales">
+					<a
+						href="https://www.instagram.com/poweraudioproducciones/"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Instagram (abre en una pestaña nueva)"
+					>
+						<i class="bi bi-instagram" aria-hidden="true"></i>
+					</a>
+					<a
+						href="https://www.facebook.com/PowerAudioProducciones/"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Facebook (abre en una pestaña nueva)"
+					>
+						<i class="bi bi-facebook" aria-hidden="true"></i>
+					</a>
+					<a
+						href="https://api.whatsapp.com/send?phone=573127274932&text=Hola%21+Estoy+interesad%40+en+realizar+una+cotizaci%C3%B3n.+&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn2o3H7wAGGQCmIb1CytWErkAUNIxRGC4FqykKzgatvhDIA74-HS-Uht_mNyI_aem_WcmvODdvKRcfiQ5Iu5gkaQ"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="WhatsApp (abre en una pestaña nueva)"
+					>
+						<i class="bi bi-whatsapp" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
