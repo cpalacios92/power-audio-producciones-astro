@@ -20,19 +20,37 @@ const brands = [
 			</p>
 		</header>
 
-		<ul class="technology-list" aria-label="Marcas de equipos">
-			{
-				brands.map((brand) => (
-					<li class="technology-item">
-						<img
-							src={`/images/technology/${brand.image}`}
-							alt={brand.name}
-							loading="lazy"
-							decoding="async"
-						/>
-					</li>
-				))
-			}
-		</ul>
+		<div class="technology-carousel" aria-label="Marcas de equipos">
+			<div class="technology-track">
+				<ul class="technology-list">
+					{
+						brands.map((brand) => (
+							<li class="technology-item">
+								<img
+									src={`/images/technology/${brand.image}`}
+									alt={brand.name}
+									loading="lazy"
+									decoding="async"
+								/>
+							</li>
+						))
+					}
+				</ul>
+				<ul class="technology-list" aria-hidden="true">
+					{
+						brands.map((brand) => (
+							<li class="technology-item">
+								<img
+									src={`/images/technology/${brand.image}`}
+									alt=""
+									loading="lazy"
+									decoding="async"
+								/>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
 	</div>
 </section>
