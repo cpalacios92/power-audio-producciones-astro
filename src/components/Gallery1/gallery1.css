@@ -1,0 +1,121 @@
+.gallery1 {
+	padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5rem);
+	background: #fff;
+}
+
+.gallery1-inner {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.gallery1 h2 {
+	margin: 0 0 1.5rem;
+	color: #111;
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 700;
+	letter-spacing: -0.04em;
+	text-align: center;
+}
+
+.gallery1-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.gallery1-trigger {
+	display: block;
+	overflow: hidden;
+	padding: 0;
+	border: 0;
+	background: #111;
+	cursor: zoom-in;
+}
+
+.gallery1-trigger img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.gallery1-trigger:hover img,
+.gallery1-trigger:focus-visible img {
+	transform: scale(1.05);
+}
+
+.gallery1-trigger:focus-visible {
+	outline: 3px solid #995f2b;
+	outline-offset: 3px;
+}
+
+.gallery1-dialog {
+	position: fixed;
+	max-width: min(96vw, 1440px);
+	max-height: 94vh;
+	overflow: visible;
+	padding: 0;
+	border: 0;
+	background: transparent;
+}
+
+.gallery1-dialog::backdrop {
+	background: rgba(0, 0, 0, 0.88);
+}
+
+.gallery1-expanded-image {
+	display: block;
+	max-width: 96vw;
+	max-height: 90vh;
+	object-fit: contain;
+}
+
+.gallery1-close {
+	position: absolute;
+	top: -2.75rem;
+	right: 0;
+	display: grid;
+	width: 2.5rem;
+	aspect-ratio: 1;
+	place-items: center;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	font-size: 1.75rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.gallery1-close:focus-visible {
+	outline: 3px solid #d7a26f;
+	outline-offset: 3px;
+}
+
+@media (max-width: 767.98px) {
+	.gallery1-grid {
+		display: flex;
+		overflow-x: auto;
+		gap: 0.75rem;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		overscroll-behavior-x: contain;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.gallery1-grid::-webkit-scrollbar {
+		display: none;
+	}
+
+	.gallery1-trigger {
+		flex: 0 0 88%;
+		scroll-snap-align: start;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gallery1-trigger img {
+		transition: none;
+	}
+}

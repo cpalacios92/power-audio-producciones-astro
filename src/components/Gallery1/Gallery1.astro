@@ -1,0 +1,73 @@
+---
+import "./gallery1.css";
+
+const images = [
+	"power-audio-producciones-2026-2.webp",
+	"power-audio-producciones-2026-3.webp",
+	"power-audio-producciones-2026-4.webp",
+];
+---
+
+<section class="gallery1" aria-labelledby="gallery1-title">
+	<div class="gallery1-inner">
+		<div class="gallery1-grid">
+			{
+				images.map((image, index) => (
+					<button
+						class="gallery1-trigger"
+						type="button"
+						data-gallery-image={`/images/gallery1/${image}`}
+						data-gallery-alt={`Evento de Power Audio Producciones, imagen ${index + 1}`}
+						aria-label={`Ampliar imagen ${index + 1} de la galería`}
+					>
+						<img
+							src={`/images/gallery1/${image}`}
+							alt={`Evento de Power Audio Producciones, imagen ${index + 1}`}
+							loading="lazy"
+							decoding="async"
+						/>
+					</button>
+				))
+			}
+		</div>
+	</div>
+
+	<dialog class="gallery1-dialog" aria-label="Imagen ampliada">
+		<button class="gallery1-close" type="button" aria-label="Cerrar imagen">
+			&times;
+		</button>
+		<img class="gallery1-expanded-image" src="" alt="" />
+	</dialog>
+</section>
+
+<script>
+	document.querySelectorAll<HTMLElement>(".gallery1").forEach((gallery) => {
+		const dialog =
+			gallery.querySelector<HTMLDialogElement>(".gallery1-dialog");
+		const expandedImage = gallery.querySelector<HTMLImageElement>(
+			".gallery1-expanded-image",
+		);
+		const closeButton =
+			gallery.querySelector<HTMLButtonElement>(".gallery1-close");
+
+		if (!dialog || !expandedImage || !closeButton) return;
+
+		gallery
+			.querySelectorAll<HTMLButtonElement>(".gallery1-trigger")
+			.forEach((trigger) => {
+				trigger.addEventListener("click", () => {
+					const imageSrc = trigger.dataset.galleryImage;
+					if (!imageSrc) return;
+
+					expandedImage.src = imageSrc;
+					expandedImage.alt = trigger.dataset.galleryAlt ?? "";
+					dialog.showModal();
+				});
+			});
+
+		closeButton.addEventListener("click", () => dialog.close());
+		dialog.addEventListener("click", (event) => {
+			if (event.target === dialog) dialog.close();
+		});
+	});
+</script>
