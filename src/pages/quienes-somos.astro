@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Quiénes Somos | Power Audio Producciones">
+	<main class="about-page" id="quienes-somos">
+		<article class="about-content">
+			<h1>Un evento para cada ocasión</h1>
+			<p>
+				<strong>
+					En Power Audio Producciones llevamos la producción técnica de tu
+					evento a cualquier lugar de Colombia.
+				</strong>{" "}
+				Contamos con soluciones en sonido profesional, iluminación,
+				pantallas LED, tarimas, carpas y equipos para DJ, adaptándonos a
+				las necesidades, el formato y la magnitud de cada producción.
+			</p>
+			<p>
+				Nuestra experiencia nos permite acompañar cada proyecto desde la
+				planeación hasta la ejecución, brindando asesoría personalizada,
+				tecnología profesional y respaldo técnico para que cada evento se
+				desarrolle con calidad, seguridad y atención a cada detalle.
+			</p>
+		</article>
+	</main>
+</Layout>
+
+<style>
+	.about-page {
+		padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 5vw, 5rem);
+		background: #f7f5f2;
+	}
+
+	.about-content {
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		margin: 0 0 2rem;
+		color: #111;
+		font-size: clamp(2.5rem, 6vw, 5rem);
+		font-weight: 700;
+		letter-spacing: -0.05em;
+		line-height: 1.05;
+		text-wrap: balance;
+	}
+
+	p {
+		margin: 0 0 1.5rem;
+		color: #444;
+		font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+		line-height: 1.8;
+	}
+
+	strong {
+		color: #111;
+	}
+</style>
